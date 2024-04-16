@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+    </script>
+
+    <style>
+        #map {height: 600px; width: 600px;}
+        .popup{
+            font-size: 1.1rem;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div id="map" ></div>
+    <div id="marker"></div>
+
+</body>
+
+<script>
+    const map = L.map('map').setView([35.7219, 51.3347], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+const customIcon = L.icon({
+    iconUrl:'./img/blackstyle.png',
+    iconSize:[35,35],
+})
+
+// L.marker([35.7219, 51.3347],{
+//     title: "Inja",   
+//     icon: customIcon,
+// })
+// .bindPopup(   
+//     '<span class="popup"> <b>Hello!</b> </span>'
+//    )
+// .addTo(map)
+const data = {
+        haftetir:{
+            coords: [35.7219, 51.3347],
+            // title: "Haftetir",
+            // address: "Tehran",
+            // phone: "0912",
+        },
+        hafhoz:{
+            coords: [35.7119, 51.3247],
+            // title: "Hafthoz",
+            // address: "Tehran",
+            // phone: "0919",
+        },
+        narmak:{
+            coords: [35.7319, 51.3447],
+            // title: "Narmak",
+            // address: "Tehran",
+            // phone: "0936",
+        }
+
+    }
+    for (let key in data) {
+    const airport = data[key];
+
+    L.marker(airport.coords,{
+        // title: airport.title,
+        icon: customIcon,
+    })
+// .bindPopup(
+//     '<span class="popup"> ${airport.}</span>'
+// )
+    .addTo(map)
+}
+    
+
+ 
+        
+    
+
+
+
+
+</script>
+
+
+</html>
