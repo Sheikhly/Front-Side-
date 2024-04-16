@@ -51,21 +51,21 @@ const customIcon = L.icon({
 const data = {
         haftetir:{
             coords: [35.7219, 51.3347],
-            // title: "Haftetir",
-            // address: "Tehran",
-            // phone: "0912",
+            title: "Haftetir",
+            address: "Tehran",
+            phone: "0912",
         },
         hafhoz:{
             coords: [35.7119, 51.3247],
-            // title: "Hafthoz",
-            // address: "Tehran",
-            // phone: "0919",
+            title: "Hafthoz",
+            address: "Tehran",
+            phone: "0919",
         },
         narmak:{
             coords: [35.7319, 51.3447],
-            // title: "Narmak",
-            // address: "Tehran",
-            // phone: "0936",
+            title: "Narmak",
+            address: "Tehran",
+            phone: "0936",
         }
 
     }
@@ -76,9 +76,12 @@ const data = {
         // title: airport.title,
         icon: customIcon,
     })
-// .bindPopup(
-//     '<span class="popup"> ${airport.}</span>'
-// )
+    .bindPopup(
+    `<span class="popup">
+    ${airport.address} <br>
+    ${airport.phone}
+    </span>`
+    )
     .addTo(map)
 }
     
