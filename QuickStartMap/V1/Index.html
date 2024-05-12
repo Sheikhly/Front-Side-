@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
@@ -13,10 +17,25 @@
     </script>
 
     <style>
-        #map {height: 600px; width: 600px;}
+        #map {height: 800px; width: 800px;}
         .popup{
             font-size: 1.1rem;
+            font-family: "Rubik", sans-serif;
+            font-weight: 300;
         }
+
+        /* .leaflet-popup-content-wrapper {
+            border-radius: 0;
+            background: black;
+            color: white;
+            font-size: 20px;
+        }
+        .leaflet-popup-content {
+            margin: 5px;
+        }
+        .leaflet-popup-tip {
+            background: black;
+        } */
     </style>
     
 </head>
@@ -54,18 +73,24 @@ const data = {
             title: "Haftetir",
             address: "Tehran",
             phone: "0912",
+            bargh: "3",
+            ab: "2"
         },
         hafhoz:{
             coords: [35.7119, 51.3247],
             title: "Hafthoz",
             address: "Tehran",
             phone: "0919",
+            bargh: "4",
+            ab: "5"
         },
         narmak:{
             coords: [35.7319, 51.3447],
             title: "Narmak",
-            address: "Tehran",
+            address: "تهران",
             phone: "0936",
+            bargh: "1",
+            ab: "7"
         }
 
     }
@@ -78,11 +103,14 @@ const data = {
     })
     .bindPopup(
     `<span class="popup">
-    ${airport.address} <br>
-    ${airport.phone}
+    نام فرودگاه: ${airport.address} <br>
+    ⚡️<a href="https://google.com"> کنتور برق:${airport.bargh} </a> <br>
+
+    💧<a href="https://google.com"> کنتور آب:${airport.ab} </a> <br>
     </span>`
     )
     .addTo(map)
+
 }
     
 
